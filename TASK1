@@ -1,0 +1,30 @@
+
+
+import pandas as pd
+
+# Create a sample dataset
+data = {'col1': [1, 2, None, 4], 'col2': ['A', 'B', 'C', 'D'], 'col3': [1.2, 3.5, None, 7.8]}
+df = pd.DataFrame(data)
+
+# Print the original data
+print("Original Data:")
+print(df)
+
+# Check for missing values
+print("\nMissing Values:")
+print(df.isnull().sum())
+
+# Handle missing values (e.g., fill with mean/median or drop rows)
+df['col1'].fillna(df['col1'].mean(), inplace=True)  # Fill missing values in col1 with mean
+df.dropna(subset=['col3'], inplace=True)  # Drop rows with missing values in col3
+
+# Check for data types
+print("\nData Types:")
+print(df.dtypes)
+
+# Convert data types if necessary (e.g., convert string to numeric)
+df['col1'] = pd.to_numeric(df['col1'], errors='coerce')  # Try to convert col1 to numeric
+
+# Print the preprocessed data
+print("\nPreprocessed Data:")
+print(df)
