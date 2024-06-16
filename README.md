@@ -21,3 +21,48 @@ Encoding categorical variables: Convert categorical data (like text labels) into
 Scaling or normalization: Scale or normalize numerical features to a common range for better model performance.
 Outlier handling: Identify and address outliers that may skew your data.
 Remember, data preprocessing is an iterative process. You may need to explore different techniques and assess their impact on your model's performance.
+
+
+
+
+
+
+OUTPUT OF CODE-
+
+
+
+
+
+
+
+Original Data:
+   col1 col2  col3
+0   1.0    A   1.2
+1   2.0    B   3.5
+2   NaN    C   NaN
+3   4.0    D   7.8
+
+Missing Values:
+col1    1
+col2    0
+col3    1
+dtype: int64
+d:\py\FIRST TASK.PY:17: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
+The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy. 
+
+For example, when doing 'df[col].method(value, inplace=True)', try using 'df.method({col: value}, inplace=True)' or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
+
+
+  df['col1'].fillna(df['col1'].mean(), inplace=True)  # Fill missing values in col1 with mean
+
+Data Types:
+col1    float64
+col2     object
+col3    float64
+dtype: object
+
+Preprocessed Data:
+   col1 col2  col3
+0   1.0    A   1.2
+1   2.0    B   3.5
+3   4.0    D   7.8
